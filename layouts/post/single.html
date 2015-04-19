@@ -1,32 +1,35 @@
 {{ template "theme/partials/header.html" . }}
+<div class="row">
 
-<div class="container">	
-	<div class="row">
-		<div class="col-md-offset-1 col-md-10">
-			<h3>{{ .Title }}</h3>
-				<span class="label label-primary">{{ .Date.Format "Mon Jan 2, 2006" }}</span> in 
-				{{ range $i, $e :=.Params.categories }}
-					{{if $i}} , {{end}}
-					<a href="/categories/{{ . | urlize }}">{{ . }}</a>
-				{{ end }} using tags 			 
-				{{ range $i, $e :=.Params.tags }}
-					{{if $i}} , {{end}}
-					<a href="/tags/{{ . | urlize }}">{{ . }}</a>
-				{{ end }}
-			</small>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-offset-1 col-md-10">
-			<br>
-			{{ .Content }}
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<hr>
-		</div>
-	</div>	
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+			<article>
+				<!-- Title -->
+				<h1><a href="{{.Permalink}}">{{ .Title }}</a></h1>
+
+				<!-- Tags -->
+				<p class="tags">
+					{{ range $i, $e :=.Params.tags }}
+						{{if $i}} , {{end}}
+						<a href="/tags/{{ . | urlize }}">{{ . }}</a>
+					{{ end }}
+				</p>
+				<!-- Date/Time -->
+				<p><span class="glyphicon glyphicon-time"></span> Posted on {{ .Date.Format "Mon Jan 2, 2006" }}</p>
+
+				{{ .Content }}
+
+				<p class="social-buttons">
+					<div class="fb-like" data-href="{{.Permalink}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+					<a href="http://b.hatena.ne.jp/entry/{{.Permalink}}" class="hatena-bookmark-button" data-hatena-bookmark-title="Syncer" data-hatena-bookmark-layout="simple-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+					<a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true" data-url="{{.Permalink}}" data-text="{{ .Title }}">Tweet</a>
+				</p>
+
+				<hr />
+			</article>
+    </div>
+
+		{{ template "theme/partials/sidebar.html" . }}
 </div>
-
+<!-- /.row -->
 {{ template "theme/partials/footer.html" . }}
