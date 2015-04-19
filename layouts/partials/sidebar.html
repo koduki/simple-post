@@ -18,7 +18,7 @@
     <!-- Blog Categories Well -->
     <div class="well">
         <h4>Tags</h4>
-        <div class="row list-group">
+        <div>
             {{ $baseurl := .Site.BaseUrl }}
             {{ range $name, $value := .Site.Taxonomies.tags }}
             <a href="{{ $baseurl }}/tags/{{ $name | urlize }}" style="font-size: {{ add 8 (mul 10 $value.Count) }}px;">
@@ -27,6 +27,15 @@
             {{ end }}
         </div>
         <!-- /.row -->
+    </div>
+
+    <div class="well">
+        <h4>Recent Posts</h4>
+        <ul>
+            {{range first 10 .Site.Recent}}
+            <li><a href="{{.RelPermalink}}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
     </div>
 
     <!-- Side Widget Well -->

@@ -11,13 +11,17 @@
 				<a href="/tags/{{ . | urlize }}">{{ . }}</a>
 			{{ end }}
 		</p>
-
-		<hr />
-
 		<!-- Date/Time -->
 		<p><span class="glyphicon glyphicon-time"></span> Posted on {{ .Date.Format "Mon Jan 2, 2006" }}</p>
 
 		{{ .Content }}
 
+		<p class="social-buttons">
+			<div class="fb-like" data-href="{{.Permalink}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+			<a href="http://b.hatena.ne.jp/entry/{{.Permalink}}" class="hatena-bookmark-button" data-hatena-bookmark-title="Syncer" data-hatena-bookmark-layout="simple-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+			<a class="twitter-share-button" href="https://twitter.com/share" data-dnt="true" data-url="{{.Permalink}}" data-text="{{ .Title }}">Tweet</a>
+		</p>
+
+		<hr />
 	</article>
 	{{ end }}
