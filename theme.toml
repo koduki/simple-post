@@ -1,10 +1,10 @@
-name = "hugo-journal"
+name = "simple-post"
 license = "MIT"
 source_repo = ""
-description = "Hugo theme based on Twitter BootStrap and Journal CSS theme"
+description = "simple-post theme based on Twitter BootStrap"
 tags = ["post", "category"]
 categories = ["featured"]
 
 [author]
-    name = "Marco Pas"
-    email = "marco.pasopas@gmail.com"
+    name = "koduki"
+    email = "pascalm3+github@gmail.com"
