@@ -1,0 +1,14 @@
+{{ template "theme/partials/header.html" . }}
+<div class="row">
+
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+			{{ range first 20 .Data.Pages.ByDate.Reverse }}
+				{{ .Render "frontpage-post" }}
+			{{ end }}
+    </div>
+
+		{{ template "theme/partials/sidebar.html" . }}
+</div>
+<!-- /.row -->
+{{ template "theme/partials/footer.html" . }}

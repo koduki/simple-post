@@ -1,0 +1,20 @@
+	{{ if eq .Type "post" }}
+	<!-- Blog Post -->
+	<article>
+		<!-- Title -->
+		<h1><a href="{{.Permalink}}">{{ .Title }}</a></h1>
+
+		<!-- Tags -->
+		<p class="lead">
+
+		</p>
+
+		<hr />
+
+		<!-- Date/Time -->
+		<p><span class="glyphicon glyphicon-time"></span> Posted on {{ .Date.Format "Mon Jan 2, 2006" }}</p>
+
+		{{ .Content }}
+
+	</article>
+	{{ end }}
