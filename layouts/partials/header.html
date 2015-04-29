@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="{{.Site.Params.Description}}">
     <meta name="author" content="">
 
     <title>{{.Title}}</title>
@@ -14,9 +13,13 @@
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- Default CSS -->
     <link href="/css/style.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    {{ if isset .Site.Params "css" }}
+    <link href="{{.Site.Params.css}}" rel="stylesheet">
+    {{ end }}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

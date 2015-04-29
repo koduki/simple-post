@@ -1,6 +1,8 @@
 {{ template "theme/partials/header.html" . }}
 <div class="row">
-
+    <div class="col-lg-8">
+      {{.Site.Params.Description}}
+    </div>
     <!-- Blog Post Content Column -->
     <div class="col-lg-8">
 			{{ range first 20 .Data.Pages.ByDate.Reverse }}

@@ -18,9 +18,8 @@
     <div class="well">
         <h3>{{.Site.Params.SidebarTagTitle}}</h3>
         <div>
-            {{ $baseurl := .Site.BaseUrl }}
             {{ range $name, $value := .Site.Taxonomies.tags }}
-            <a href="{{ $baseurl }}/tags/{{ $name | urlize }}" style="font-size: {{ add 8 (mul 10 $value.Count) }}px;">
+            <a href="/tags/{{ $name | urlize }}" style="font-size: {{ add 8 (mul 10 $value.Count) }}px;">
                 {{ $name }}
             </a>
             {{ end }}
